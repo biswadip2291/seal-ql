@@ -279,7 +279,8 @@ class Settings(BaseSettings):
         if cloud_mode and not self.has_cloud_api_credentials():
             warnings.append(
                 "OLLAMA_PROFILE=disabled but no API key found. Set LLM_API_KEY or "
-                "GEMINI_API_KEY / OPENAI_API_KEY / ANTHROPIC_API_KEY / GROQ_API_KEY / MISTRAL_API_KEY."
+                "GEMINI_API_KEY / OPENAI_API_KEY / ANTHROPIC_API_KEY / "
+                "GROQ_API_KEY / MISTRAL_API_KEY."
             )
 
         return warnings
@@ -306,9 +307,9 @@ class Settings(BaseSettings):
             return self.anthropic_api_key or self.llm_api_key
         if model.startswith("groq/"):
             return self.groq_api_key or self.llm_api_key
-        return self.llm_api_key or self.openai_api_key
         if model.startswith("mistral/"):
             return self.mistral_api_key or self.llm_api_key
+        return self.llm_api_key or self.openai_api_key
 
     def has_embedding_credentials(self) -> bool:
         return bool(self.resolved_embedding_api_key())

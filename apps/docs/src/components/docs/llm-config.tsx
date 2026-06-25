@@ -89,7 +89,7 @@ export function LlmConfigSection() {
           {
             name: 'mistral/mistral-large-latest',
             type: 'cloud',
-            description: 'Mistral (requires OLLAMA_PROFILE=disabled and MISTRAL_API_KEY).',
+            description: 'Mistral (requires OLLAMA_PROFILE=disabled and LLM_API_KEY or MISTRAL_API_KEY).',
           },
         ]}
       />

@@ -77,6 +77,7 @@ def test_groq_api_key_counts_for_cloud(monkeypatch: pytest.MonkeyPatch) -> None:
     assert settings.is_cloud_model()
     assert not settings.collect_llm_configuration_warnings()
 
+
 def test_mistral_api_key_counts_for_cloud(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setenv("OLLAMA_PROFILE", "disabled")
     monkeypatch.setenv("LLM_MODEL", "mistral/mistral-large-latest")
